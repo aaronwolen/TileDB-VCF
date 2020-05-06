@@ -45,14 +45,14 @@ jobs:
         dockerfile: docker/Dockerfile-cli
         repository: aaronwolen/tiledbvcf-cli
         context: libtiledbvcf
-      python:
-        dockerfile: docker/Dockerfile-py
-        repository: aaronwolen/tiledbvcf-py
-        context: .
-      dask:
-        dockerfile: docker/Dockerfile-dask-py
-        repository: aaronwolen/tiledbvcf-dask
-        context: .
+      # python:
+      #   dockerfile: docker/Dockerfile-py
+      #   repository: aaronwolen/tiledbvcf-py
+      #   context: .
+      # dask:
+      #   dockerfile: docker/Dockerfile-dask-py
+      #   repository: aaronwolen/tiledbvcf-dask
+      #   context: .
 
   steps:
   - template: ci/build-images.yml
