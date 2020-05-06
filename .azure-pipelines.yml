@@ -39,6 +39,9 @@ jobs:
       startsWith(variables['build.sourceBranch'], 'refs/tags')
     )
 
+  pool:
+    vmImage: 'ubuntu-18.04'
+
   strategy:
     matrix:
       cli:
