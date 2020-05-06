@@ -2,6 +2,7 @@ trigger:
   branches:
     include:
     - master
+    - test-ci
     - release-*
   tags:
     include:
@@ -34,7 +35,7 @@ jobs:
   dependsOn: Build
   condition: |
     or(
-      eq(variables['build.sourceBranch'], 'refs/heads/master'),
+      eq(variables['build.sourceBranch'], 'refs/heads/test-ci'),
       startsWith(variables['build.sourceBranch'], 'refs/tags')
     )
 
