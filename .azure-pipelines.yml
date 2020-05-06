@@ -9,30 +9,30 @@ trigger:
       - "*"
 
 jobs:
-- job: Build
-  strategy:
-    matrix:
-      ubuntu_18:
-        imageName: 'ubuntu-18.04'
-        python.version: '3.x'
-        CXX: g++
-        BUILD_PYTHON_API: ON
-        BUILD_SPARK_API: ON
-#      macOS:
-#        imageName: 'macOS-10.13'
-#        CXX: clang++
+# - job: Build
+#   strategy:
+#     matrix:
+#       ubuntu_18:
+#         imageName: 'ubuntu-18.04'
+#         python.version: '3.x'
+#         CXX: g++
+#         BUILD_PYTHON_API: ON
+#         BUILD_SPARK_API: ON
+# #      macOS:
+# #        imageName: 'macOS-10.13'
+# #        CXX: clang++
 
-  pool:
-    vmImage: $(imageName)
-  steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '$(python.version)'
-      architecture: 'x64'
-  - template: ci/azure-linux_mac.yml
+#   pool:
+#     vmImage: $(imageName)
+#   steps:
+#   - task: UsePythonVersion@0
+#     inputs:
+#       versionSpec: '$(python.version)'
+#       architecture: 'x64'
+#   - template: ci/azure-linux_mac.yml
 
 - job: Images
-  dependsOn: Build
+  # dependsOn: Build
   condition: |
     or(
       eq(variables['build.sourceBranch'], 'refs/heads/test-ci'),
