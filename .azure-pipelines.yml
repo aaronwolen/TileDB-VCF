@@ -1,8 +1,7 @@
 trigger:
   branches:
     include:
-    - master
-    - release-*
+      - "*"
   tags:
     include:
       - "*"
@@ -28,17 +27,17 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: 'x64'
-  - template: ci/azure-linux_mac.yml
+  # - template: ci/azure-linux_mac.yml
 
 - job: Docker
   dependsOn: Build
   pool:
     vmImage: 'ubuntu-18.04'
-  condition: |
-    or(
-      eq(variables['build.sourceBranch'], 'refs/heads/master'),
-      startsWith(variables['build.sourceBranch'], 'refs/tags')
-    )
+  # condition: |
+  #   or(
+  #     eq(variables['build.sourceBranch'], 'refs/heads/master'),
+  #     startsWith(variables['build.sourceBranch'], 'refs/tags')
+  #   )
 
   strategy:
     matrix:
