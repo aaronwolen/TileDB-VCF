@@ -1,11 +1,10 @@
 steps:
 
   - task: Docker@2
-    displayName: Docker image (latest)
+    displayName: Build Image
     inputs:
-      containerRegistry: 'dockerHub'
+      command: build
       repository: $(repository)
-      command: 'buildAndPush'
       Dockerfile: $(dockerfile)
       buildContext: $(context)
       tags: latest
