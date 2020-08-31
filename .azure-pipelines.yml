@@ -154,7 +154,7 @@ stages:
           - task: GithubRelease@0
             displayName: 'GitHub Release'
             inputs:
-              gitHubConnection: aaronwolen
+              gitHubConnection: github_aaronwolen
               repositoryName: aaronwolen/TileDB-VCF
               tag: $(Build.SourceBranchName)
               action: "edit"
