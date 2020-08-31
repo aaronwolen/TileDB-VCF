@@ -17,7 +17,7 @@ steps:
   condition: eq(variables['build.sourceBranch'], 'refs/heads/master')
   inputs:
     command: push
-    containerRegistry: 'dockerHub'
+    containerRegistry: 'Docker Hub'
     repository: $(repository)
     tags: dev
 
@@ -26,7 +26,7 @@ steps:
   condition: startsWith(variables['build.sourceBranch'], 'refs/tags')
   inputs:
     command: push
-    containerRegistry: 'dockerHub'
+    containerRegistry: 'Docker Hub'
     repository: $(repository)
     tags: |
       dev

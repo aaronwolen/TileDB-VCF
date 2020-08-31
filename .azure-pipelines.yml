@@ -47,11 +47,11 @@ stages:
         matrix:
           cli:
             dockerfile: docker/Dockerfile-cli
-            repository: aaronwolen/tiledbvcf-cli
+            repository: aaronwolen/dev-vcf-cli
             context: .
           python:
             dockerfile: docker/Dockerfile-py
-            repository: aaronwolen/tiledbvcf-py
+            repository: aaronwolen/dev-vcf-cli
             context: .
           # dask:
           #   dockerfile: docker/Dockerfile-dask-py
@@ -154,8 +154,8 @@ stages:
           - task: GithubRelease@0
             displayName: 'GitHub Release'
             inputs:
-              gitHubConnection: github_tiledb
-              repositoryName: TileDB-Inc/TileDB-VCF
+              gitHubConnection: github_aaronwolen
+              repositoryName: aaronwolen/TileDB-VCF
               tag: $(Build.SourceBranchName)
               action: "edit"
               assets: $(Build.BinariesDirectory)/jars/*.jar
