@@ -47,11 +47,11 @@ stages:
         matrix:
           cli:
             dockerfile: docker/Dockerfile-cli
-            repository: aaronwolen/tiledbvcf-cli
+            repository: aaronwolen/dev-vcf-cli
             context: .
           python:
             dockerfile: docker/Dockerfile-py
-            repository: aaronwolen/tiledbvcf-py
+            repository: aaronwolen/dev-vcf-cli
             context: .
           # dask:
           #   dockerfile: docker/Dockerfile-dask-py
