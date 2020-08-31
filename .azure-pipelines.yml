@@ -35,7 +35,7 @@ stages:
           architecture: 'x64'
       - script: printenv
         displayName: 'Print Env'
-      - template: ci/azure-linux_mac.yml
+      # - template: ci/azure-linux_mac.yml
 
     - job: Docker
       dependsOn: Build
