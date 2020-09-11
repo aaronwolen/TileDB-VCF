@@ -63,7 +63,8 @@ stages:
             #   repository: tiledb/tiledbvcf-dask
             #   context: .
         steps:
-        - template: ci/build-images.yml
+          - script: exit 0
+        # - template: ci/build-images.yml
 
   - stage: BuildNativeLibs
     condition: or(eq(variables.isMaster, true), eq(variables.isRefTag, true))
