@@ -40,7 +40,7 @@ stages:
       - script: printenv
         displayName: 'Print Env'
       # - template: ci/azure-linux_mac.yml
-      - bash: exit 1
+      - bash: 'exit 0'
 
   - stage: Docker
     condition: or(succeeded(), eq(variables.isRefTag, true))
